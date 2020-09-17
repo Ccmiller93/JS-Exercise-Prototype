@@ -97,21 +97,25 @@ console.log(newCar)
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this,name, age)
+  this.favoriteToy = favoriteToy
+}
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function () {
+  console.log(`Playing with ${this.favoriteToy}`)
 }
 
-
-
-
+const babyOne = new Baby('Riley', 4, 'fdkalsd')
+console.log(babyOne)
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. its a pronoun so its only usable in referance to something else 
+  2. if not in something else it will referance the browser
+  3. is left of the . 
+  4.
 */
 
 
